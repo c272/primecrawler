@@ -12,7 +12,10 @@ while True:
         primes = ["2"]
         break
     else:
-        primes = file.readlines()
+        primesUnformat = file.readlines()
+        primes = []
+        for i in primesUnformat:
+            primes.append(i.replace("\n", ""))
         file.close()
         break
     
@@ -29,11 +32,11 @@ while True:
     else:
         print(str(x)+" is prime.")
         foundPrime=1
-        file = open("primes.txt", "a")
-        file.write(str(x)+"\n")
-        file.close()
+        if str(x) not in primes:
+            file = open("primes.txt", "a")
+            file.write(str(x)+"\n")
+            file.close()
         if str(x) not in primes:
             primes.append(str(x))
     #Next number.
     x+=1
-        
