@@ -32,7 +32,8 @@ while True:
         file = open("primes.txt", "a")
         file.write(str(x)+"\n")
         file.close()
-        primes.append(str(x))
+        if str(x) not in primes:
+            primes.append(str(x))
     #Next number.
     x+=1
         
